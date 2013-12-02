@@ -3,12 +3,12 @@
 ## Source: https://github.com/tommy351/hexo/
 
 # Site
-title: Hexo
-subtitle:
+title: wanderknight
+subtitle: 孤独的自立；完全的自由
 description:
-author: John Doe
-email:
-language:
+author: wanderknight
+email: wanderknight@gmail.com
+language: zh-CN
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -76,6 +76,9 @@ disqus_shortname:
 ## Themes: https://github.com/tommy351/hexo/wiki/Themes
 theme: light
 exclude_generator:
+plugins:
+- hexo-generator-feed
+- hexo-generator-sitemap
 
 # Deployment
 ## Docs: http://zespia.tw/hexo/docs/deploy.html
