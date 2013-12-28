@@ -1,0 +1,234 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>使用Hexo在github上搭建博客 | wanderknight</title>
+  <meta name="author" content="wanderknight">
+  
+  <meta name="description" content="在github上建立个人网站越来越容易，从jeklly到otcopress，直到现在的hexo，使得博客从建立越来越便利。github博客有点多多，如网站稳定，可以绑定域名等，最关键的是，没有关键字屏蔽（国内朋友经常遇到），因此，我义无反顾的加入了这个自由的世界。
+github上的网站最初的目的是为项目提供一个简单的介绍网站，但是很多开发者将其作为个人的博客站点。当前github为个人、项目博客提供了两种不同的网址方式，使用hexo搭建博客的过程稍有不同，因此本文将分别介绍这两种方法。一是地址为username.github.io的个人博客，第3节介绍；二是地址为username.github.io/repo_name的项目网站，第4节介绍。">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="使用Hexo在github上搭建博客"/>
+  <meta property="og:site_name" content="wanderknight"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/knight_sword.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="wanderknight" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">wanderknight</a></h1>
+  <h2><a href="/">孤独的自立；完全的自由</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">首页</a></li>
+    
+      <li><a href="/archives">存档</a></li>
+    
+      <li><a href="/about">关于</a></li>
+    
+      <li><a href="/todolist">ToDo</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-12-01T07:00:00.000Z"><a href="/2013/12/01/hexo-create-blog-in-github/">12月 1 2013</a></time>
+      
+      
+  
+    <h1 class="title">使用Hexo在github上搭建博客</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>在github上建立个人网站越来越容易，从jeklly到otcopress，直到现在的hexo，使得博客从建立越来越便利。github博客有点多多，如网站稳定，可以绑定域名等，最关键的是，没有关键字屏蔽（国内朋友经常遇到），因此，我义无反顾的加入了这个自由的世界。</p>
+<p>github上的网站最初的目的是为项目提供一个简单的介绍网站，但是很多开发者将其作为个人的博客站点。当前github为个人、项目博客提供了两种不同的网址方式，使用hexo搭建博客的过程稍有不同，因此本文将分别介绍这两种方法。一是地址为username.github.io的个人博客，第3节介绍；二是地址为username.github.io/repo_name的项目网站，第4节介绍。<a id="more"></a></p>
+<h2>1. 前提条件</h2>
+<p>已经在github上注册账号，用户名假设为username。</p>
+<h2>2. 配置环境</h2>
+<h3>2.1 安装Git</h3>
+<p>下载 <a href="http://code.google.com/p/msysgit/" target="_blank">msysgit</a> 并执行即可完成安装。</p>
+<h3>2.2 安装Node.js</h3>
+<p>在 Windows 环境下安装 Node.js 非常简单，仅须下载<a href="http://nodejs.org/" target="_blank">Node.js</a>安装文件并执行即可完成安装。</p>
+<h3>2.3 安装hexo</h3>
+<p>利用 npm 命令即可安装。（当<a href="http://code.google.com/p/msysgit/" target="_blank">msysgit</a> 安装完毕，在任意位置点击鼠标右键，选择Git bash）</p>
+<pre><code><span class="title">npm</span> install -g hexo</code></pre>
+<h2>3. 搭建个人博客</h2>
+<h3>3.1 初始化hexo</h3>
+<p>安装完成后，在你喜爱的文件夹下（如H:\hexo），执行以下指令(在H:\hexo内点击鼠标右键，选择Git bash)，Hexo 即会自动在目标文件夹建立网站所需要的所有文件。</p>
+<pre><code>1    hexo init</code></pre>
+<p>现在我们已经搭建起本地的hexo博客了，执行以下命令(在H:\blog)，然后到浏览器输入<a href="localhost:4000">localhost:4000</a>看看。</p>
+<pre><code><span class="bullet">1. </span>hexo generate
+<span class="bullet">2. </span>hexo server</code></pre>
+<p>好了，至此，本地博客已经搭建起来了，只是本地哦，别人看不到的。下面，我们要部署到Github。</p>
+<h3>3.2 github上创建repository</h3>
+<p>在自己Github主页右上角，创建一个新的repository。比如我的Github账号是wanderknight，那么我应该创建的repository名字应该是wanderknight.github.io。</p>
+<h3>3.3 部署hexo项目到github</h3>
+<p>编辑_config.yml(在H:\hexo下)。你在部署时，要把下面的wanderknight都换成你的账号名即username。</p>
+<pre><code><span class="method">deploy:</span>
+  <span class="method">type:</span> github
+  <span class="method">repository:</span> <span class="method">https:</span>//github.com/wanderknight/wanderknight.github.io.git
+  <span class="method">branch:</span> master</code></pre>
+<p>执行下列指令即可将本地的hexo生成的静态html代码部署到github。</p>
+<pre><code><span class="bullet">1. </span>hexo generate
+<span class="bullet">2. </span>hexo deploy</code></pre>
+<p>Okay,我们的博客已经完全搭建起来了，十分钟后，在浏览器访问wanderknight.github.io就能看到你的成就了！</p>
+<h2>4. 搭建项目网站</h2>
+<h3>4.1 初始化hexo</h3>
+<p>流程同3.1节。</p>
+<h3>4.2 github上创建repository</h3>
+<p>流程同3.2节，需要注意应该创建的repository名字创建的项目网站以后访问的时候是通过wanderknight.github.io/repo_name来访问。以前github的网站访问是.com的后缀，据说为了安全现在都改成了.io的后缀。</p>
+<h3>4.3 部署hexo项目到github</h3>
+<p>流程同3.3节。但一定要注意的不同是，分支branch设置为gh-pages，github通过这个分支来识别项目里哪些是网站的内容。</p>
+<pre><code><span class="method">deploy:</span>
+  <span class="method">type:</span> github
+  <span class="method">repository:</span> <span class="method">https:</span>//github.com/wanderknight/repo_name.git
+  <span class="method">branch:</span> gh-pages</code></pre>
+<p>在浏览器访问wanderknight.github.io/repo_name就能看到你的项目网站了！</p>
+<h1>5. 关于博客管理</h1>
+<p>hexo上传到github上的博客内容都是hexo生成的静态网站，但是hexo项目本身的配置信息及你书写的markdown格式的博客内容都仅仅在本地保存；因此，我又在github上创建了个repository称之为blog，并将个人及项目博客加入到这个blog项目。</p>
+<h1>6. 其他事项</h1>
+<p>注意：有些新用户需要设置 ssh，否则上述命令会失败。ssh 的介绍和设置方法请看官方教程，不用担心，很简单。</p>
+<p>记住：每次修改本地文件后，需要hexo generate才能保存。每次使用命令时，都要在H:\hexo目录下。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/github/">github</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/github/">github</a>, <a href="/tags/hexo/">hexo</a>, <a href="/tags/博客/">博客</a>
+  </div>
+
+        <!-- Baidu Button BEGIN -->
+<div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare">
+<span class="bds_more">分享到：</span>
+<a class="bds_qzone"></a>
+<a class="bds_tsina"></a>
+<a class="bds_tqq"></a>
+<a class="bds_renren"></a>
+<a class="bds_t163"></a>
+<a class="shareCount"></a>
+</div>
+<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=3564671" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script>
+<!-- Baidu Button END -->
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+<!-- Duoshuo Comment BEGIN -->
+	<div class="ds-thread"></div>
+	<script type="text/javascript">
+		var duoshuoQuery = {short_name:"wanderknight"};
+		(function() {
+			var ds = document.createElement('script');
+			ds.type = 'text/javascript';ds.async = true;
+			ds.src = 'http://static.duoshuo.com/embed.js';
+			ds.charset = 'UTF-8';
+			(document.getElementsByTagName('head')[0] 
+			|| document.getElementsByTagName('body')[0]).appendChild(ds);
+		})();
+	</script>
+<!-- Duoshuo Comment END -->
+</section>
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:wanderknight.com">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/github/">github</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/github/" style="font-size: NaNpx;">github</a><a href="/tags/hexo/" style="font-size: NaNpx;">hexo</a><a href="/tags/博客/" style="font-size: NaNpx;">博客</a>
+  </div>
+</div>
+
+
+  
+
+  <div class="widget tag">
+<h3 class="title">友情链接</h3>
+<ul class="entry">
+<li><a href="http://zipperary.com/" title="Zippera's Blog">Zippera</a></li>
+</ul>
+</div>
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2013 wanderknight
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>
